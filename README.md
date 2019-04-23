@@ -4,7 +4,7 @@ Assignment to pipeline data from APIs into a database in order to be able to pow
 
 ## Flow
 
-!FlowDiagram.png
+![Flow Diagram] (/Assignment/blob/master/FlowDiagram.png)
 
 ## Installation
 
