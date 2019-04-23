@@ -4,13 +4,17 @@ Assignment to pipeline data from APIs into a database in order to be able to pow
 
 ## Installation
 
-MongoDB Installation
-
+MongoDB Installation 
+After Installation, run **mongod** in one shell and **mongo** in the other.
 ```
 brew update
 brew install mongodb
 mkdir -p /data/db
 sudo chown -R `id -un` /data/db
 ```
-Run mongod in one shell and mongo command in the other
 
+Python Modules Installation (Python v3.5)
+```
+pip install pymongo
+pip install requests
+```
