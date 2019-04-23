@@ -6,6 +6,10 @@ Assignment to pipeline data from APIs into a database in order to be able to pow
 
 ![Flow Diagram](https://github.com/linkedafaque/Assignment/blob/master/FlowDiagram.png)
 
+## Modules Used
+
+Python Multiprocessing Library has been used in order to take advantage of the cores of the CPU wherein the API hitting task is sent to each of the cores available with a subset of the total influencers available and executed concurrently. Separate subsets are run of separate cores.
+
 ## Installation
 
 MongoDB Installation. After Installation, run **mongod** in one shell and **mongo** in the other.
