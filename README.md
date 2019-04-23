@@ -12,7 +12,7 @@ mkdir -p /data/db
 sudo chown -R `id -un` /data/db
 ```
 
-Python Modules Installation (Python v3.5)
+Python Modules Installation (Python v3.5).
 ```
 pip install pymongo
 pip install requests
