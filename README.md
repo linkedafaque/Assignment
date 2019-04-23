@@ -2,6 +2,10 @@
 
 Assignment to pipeline data from APIs into a database in order to be able to power graphs for reading various metrics associated with influencers such as their follower count, following count, follower ratio and others.
 
+## Flow
+
+!FlowDiagram.png
+
 ## Installation
 
 MongoDB Installation. After Installation, run **mongod** in one shell and **mongo** in the other.
