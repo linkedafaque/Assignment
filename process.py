@@ -1,8 +1,8 @@
+import json
+import time
 import pymongo
 import requests as rq
-import json
 import multiprocessing as mp
-import time
 from datetime import datetime
 
 from models.influencer_average import InfluencerAverage
@@ -25,7 +25,9 @@ db = client[config['db']]
 stats_collection = db[config['statscollection']]
 averages_collection = db[config['averagescollection']]
 
-
+"""
+Hits Influencer API and gets all the data
+"""
 def getInfluencerStat(pk):
 	try:
 		endpoint = API + str(pk)
@@ -37,6 +39,11 @@ def getInfluencerStat(pk):
 		print(e)
 
 
+"""
+Collects all the data and stores them in a list
+Also, the followerCount, followingCount and totalDataPoints is stored 
+to be able to sum up and compute averages later
+"""
 def collect_result(result):
 	followerCounts[result.getPK()] = result.getfollowerCount()
 	followingCount[result.getPK()] = result.getFollowingCount()
@@ -44,6 +51,10 @@ def collect_result(result):
 	results.append(result.serialize())
 
 
+"""
+Gets All the current averages of influencers stored in DB
+and computes the new averages by adding the new statistics
+"""
 def getUpdatedAveragesOfInfluencers():
 	records =  averages_collection.find({"pk": {"$gte": START, "$lte": END}})
 	for record in records:
@@ -52,6 +63,9 @@ def getUpdatedAveragesOfInfluencers():
 		totalDataPoints[record['pk']] += record['totalDataPoints']
 
 
+"""
+Updates the new averages in the averages collection
+"""
 def updateAverages():
 	for result in results: 
 		influencerAverage = InfluencerAverage(result['pk'], followerCounts[result['pk']], followingCount[result['pk']],
@@ -65,6 +79,11 @@ print("Started Fetching Data From APIs")
 starttime = time.time()
 pool = mp.Pool(mp.cpu_count())
 
+
+"""
+Used multiprocessing library to be able to execute the function hitting APIs in a 
+concurrent fashion and speed up the gathering of influencer statistics
+"""
 for pk in range(START, END):
 	pool.apply_async(getInfluencerStat, args=(pk,), callback=collect_result)
 
@@ -78,7 +97,3 @@ getUpdatedAveragesOfInfluencers()
 updateAverages()
 
 print('Total Time Taken: ' + str(time.time() - starttime) + ' seconds')
-
-
-
-
