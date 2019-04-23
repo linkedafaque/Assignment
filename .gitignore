@@ -1,0 +1,6 @@
+*.class
+.idea*
+*.iml
+target
+__pycache__
+*.DS_Store
