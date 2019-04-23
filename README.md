@@ -12,7 +12,7 @@ mkdir -p /data/db
 sudo chown -R `id -un` /data/db
 ```
 
-Creation of collections in Mongo Shell.
+Create Database & Collections in Mongo Shell.
 ```
 use influencerstat;
 db.createCollection(“averages”);
