@@ -12,6 +12,13 @@ mkdir -p /data/db
 sudo chown -R `id -un` /data/db
 ```
 
+Creation of collections in Mongo Shell.
+```
+use influencerstat;
+db.createCollection(“averages”);
+db.createCollection(“stats”);
+```
+
 Python Modules Installation (Python v3.5).
 ```
 pip install pymongo
