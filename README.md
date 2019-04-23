@@ -2,9 +2,7 @@
 
 Assignment to pipeline data from APIs into a database in order to be able to power graphs for reading various metrics associated with influencers such as their follower count, following count, follower ratio and others.
 
-## Flow
-
-![Flow Diagram] (https://github.com/linkedafaque/Assignment/blob/master/FlowDiagram.png)
+![Flow Diagram](https://github.com/linkedafaque/Assignment/blob/master/FlowDiagram.png)
 
 ## Installation
 
