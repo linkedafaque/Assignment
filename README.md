@@ -4,8 +4,7 @@ Assignment to pipeline data from APIs into a database in order to be able to pow
 
 ## Installation
 
-MongoDB Installation 
-After Installation, run **mongod** in one shell and **mongo** in the other.
+MongoDB Installation. After Installation, run **mongod** in one shell and **mongo** in the other.
 ```
 brew update
 brew install mongodb
@@ -17,4 +16,9 @@ Python Modules Installation (Python v3.5)
 ```
 pip install pymongo
 pip install requests
+```
+
+Run process file to start pipelining data.
+```
+python process.py
 ```
