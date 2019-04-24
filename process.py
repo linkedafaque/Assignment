@@ -32,9 +32,10 @@ def getInfluencerStat(pk):
 	try:
 		endpoint = API + str(pk)
 		response = rq.get(endpoint)
-		response = json.loads(response.content.decode('utf-8'))
-		influencerStat = InfluencerStat(response['pk'], response['username'], response['followerCount'], response['followingCount'])
-		return influencerStat
+		if(response.status_code == 200):
+			response = json.loads(response.content.decode('utf-8'))
+			influencerStat = InfluencerStat(response['pk'], response['username'], response['followerCount'], response['followingCount'])
+			return influencerStat
 	except Exception as e:
 		print(e)
 
